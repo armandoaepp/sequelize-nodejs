@@ -1,12 +1,13 @@
 const Sequelize = require('sequelize')
 
+
 const connection = new Sequelize(
     'db_sms',
-    'root',
-    '',
+    'homestead',
+    'secret',
     {
         dialect: 'mysql',
-        host: '127.0.0.1',
+        host: 'localhost',
         logging: console.log,
         port: 3306,
         timezone: '-05:00',

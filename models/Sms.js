@@ -3,27 +3,31 @@ var connection = require('./cnx.js');
 var cnx       = connection.cnx ;
 var Sequelize = connection.Sequelize ;
 
-const FileEnvio = cnx.define('FileEnvio',
+const Sms = cnx.define('Sms',
     {
         id: {
             type: Sequelize.INTEGER(11),
             allowNull: false,
             primaryKey: true
         },
+        per_id_padre: {
+            type: Sequelize.INTEGER(11),
+            allowNull: false
+        },
         envio_id: {
             type: Sequelize.INTEGER(11),
             allowNull: false
         },
-        file_name: {
-            type: Sequelize.STRING(255),
+        server_persona_id: {
+            type: Sequelize.INTEGER(11),
             allowNull: false
         },
-         path_full: {
-            type: Sequelize.STRING(255),
+        sms_texto: {
+            type: Sequelize.STRING(160),
             allowNull: false
         },
-        url: {
-            type: Sequelize.STRING(255),
+        sms_phone: {
+            type: Sequelize.STRING(30),
             allowNull: true
         },
         estado: {
@@ -43,11 +47,11 @@ const FileEnvio = cnx.define('FileEnvio',
     {
         timestamps: false,
         freezeTableName: true,
-        tableName: 'file_envio'
+        tableName: 'sms'
     }
 );
 
 module.exports = {
-    FileEnvio: FileEnvio,
+    Sms: Sms,
 }
 
